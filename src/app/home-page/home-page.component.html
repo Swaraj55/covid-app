@@ -20,4 +20,60 @@
             <img @slideInFromRight src="../../assets/coronavirus.png"  alt="coronavirus picture" style="width: 700px;height: 500px;padding-top: 50px;">
         </div>
     </div>
+
+    <mat-divider></mat-divider>
+
+    <div class="covid-cases-section" fxLayout="row" fxLayoutAlign="space-around center" style="padding-top: 25px;">
+        <div fxLayout="column" [style.width.pc]=20 style="padding-left: 20px;">
+            <mat-card id="covid-cases-recovered" class="mat-elevation-z6" style="border:2px solid #3fff00;">
+              <mat-card-subtitle style="text-align: center;color: #3fff00;" id="recovered-subtitle">
+                  Recovered
+              </mat-card-subtitle>
+              <mat-card-content id="recovered-content" style="text-align: center;font-size: 20px;font-weight: bold;color: #3fff00;">
+                  {{this.covidData.recovered | number}}
+              </mat-card-content>
+              <mat-card-content id="recoveredCases"></mat-card-content>
+            </mat-card>
+        </div>
+        <div fxLayout="column" [style.width.pc]=20>
+            <mat-card id="covid-cases-recovered" class="mat-elevation-z6" style="border:2px solid #ff0800;">
+              <mat-card-subtitle style="text-align: center;color: #ff0800;">
+                  Confirmed
+              </mat-card-subtitle>
+              <mat-card-content id="confirmed-content" style="text-align: center;font-size: 20px;font-weight: bold;color: #ff0800;">
+                {{this.covidData.cases | number}}
+              </mat-card-content>
+              <mat-card-content id="confirmedCases"></mat-card-content>
+            </mat-card>
+        </div>
+        <div fxLayout="column" [style.width.pc]=20>
+            <mat-card id="covid-cases-recovered" class="mat-elevation-z6" style="border:2px solid #0f52ba;">
+              <mat-card-subtitle style="text-align: center;color: #0f52ba;">
+                  Active
+              </mat-card-subtitle>
+              <mat-card-content id="active-content" style="text-align: center;font-size: 20px;font-weight: bold;color: #0f52ba;">
+                {{this.covidData.active | number}}
+              </mat-card-content>
+              <mat-card-content id="activeCases"></mat-card-content>
+            </mat-card>
+        </div>
+        <div fxLayout="column" [style.width.pc]=20>
+            <mat-card id="covid-cases-recovered" class="mat-elevation-z6" style="border:2px solid grey;">
+              <mat-card-subtitle style="text-align: center;color: #808080;">
+                  Deceased
+              </mat-card-subtitle>
+              <mat-card-content id="deceased-content" style="text-align: center;font-size: 20px;font-weight: bold;color: grey;">
+                {{this.covidData.deaths | number}}
+              </mat-card-content>
+              <mat-card-content id="deceasedCases"></mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+
+    <mat-divider style="margin-top: 20px;"></mat-divider>
+
+    <div>
+        Swaraj
+    </div>
+
 </div>
