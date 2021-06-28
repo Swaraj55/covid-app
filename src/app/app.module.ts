@@ -19,6 +19,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatListModule} from '@angular/material/list';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatCardModule} from '@angular/material/card';
+import {MatTooltipModule} from '@angular/material/tooltip';
+
 
 @NgModule({
   declarations: [
@@ -43,7 +45,8 @@ import {MatCardModule} from '@angular/material/card';
     MatProgressSpinnerModule,
     MatListModule,
     MatDividerModule,
-    MatCardModule
+    MatCardModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]

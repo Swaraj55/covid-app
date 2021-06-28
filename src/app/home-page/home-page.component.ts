@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
 import { fadeIn, slideInFromLeft, slideInFromRight } from '../animate';
 import { HomePageService } from './home-page.service';
 import * as am4core from "@amcharts/amcharts4/core";
@@ -25,8 +26,10 @@ am4core.useTheme(am4themes_material);
 export class HomePageComponent implements OnInit {
 
   covidData: any;
-
-  constructor(private homePageService: HomePageService) { }
+  elem: any;
+  constructor(private homePageService: HomePageService,
+              @Inject(DOCUMENT) private document: any
+    ) { }
 
   ngOnInit(): void {
     this.subscribeTheSpecificCountryData();
@@ -34,6 +37,23 @@ export class HomePageComponent implements OnInit {
     this.createLineChartForActiveCases();
     this.createLineChartForDeceasedCases();
     this.createLineChartForRecoveredCases();
+    this.elem = document.documentElement;
+    console.log(this.elem.requestFullscreen)
+  }
+
+  openFullscreen() {
+    if (this.elem.requestFullscreen) {
+      this.elem.requestFullscreen();
+    } else if (this.elem.mozRequestFullScreen) {
+      /* Firefox */
+      this.elem.mozRequestFullScreen();
+    } else if (this.elem.webkitRequestFullscreen) {
+      /* Chrome, Safari and Opera */
+      this.elem.webkitRequestFullscreen();
+    } else if (this.elem.msRequestFullscreen) {
+      /* IE/Edge */
+      this.elem.msRequestFullscreen();
+    }
   }
 
   subscribeTheSpecificCountryData() {
@@ -77,8 +97,8 @@ export class HomePageComponent implements OnInit {
       var series = chart.series.push(new am4charts.LineSeries());
       series.dataFields.valueY = "value";
       series.dataFields.categoryX = "label";
-      series.stroke = am4core.color("#3fff00");
-      series.strokeWidth = 2;
+      series.stroke = am4core.color("#16af23");
+      series.strokeWidth = 3;
       series.tensionX = 0.77;
     })
   }
@@ -117,7 +137,7 @@ export class HomePageComponent implements OnInit {
       var series = chart.series.push(new am4charts.LineSeries());
       series.dataFields.valueY = "value";
       series.dataFields.categoryX = "label";
-      series.strokeWidth = 2;
+      series.strokeWidth = 3;
       series.tensionX = 0.77;
     })
   }
@@ -157,7 +177,7 @@ export class HomePageComponent implements OnInit {
       series.dataFields.valueY = "value";
       series.dataFields.categoryX = "label";
       series.stroke = am4core.color("#0f52ba");
-      series.strokeWidth = 2;
+      series.strokeWidth = 3;
       series.tensionX = 0.77;
     })
   }
@@ -197,7 +217,7 @@ export class HomePageComponent implements OnInit {
       series.dataFields.valueY = "value";
       series.dataFields.categoryX = "label";
       series.stroke = am4core.color("#808080");
-      series.strokeWidth = 2;
+      series.strokeWidth = 3;
       series.tensionX = 0.77;
     })
   }

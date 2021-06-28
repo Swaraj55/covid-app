@@ -8,6 +8,13 @@ span {
     color: whitesmoke;
 }
 
+::ng-deep .fullscreen_icon {
+    width: 25px !important;
+    height: 25px !important;
+    font-size: 25px !important;
+    color: #fd3f92;
+}
+
 .main_heading{
     padding-left: 50px;
     font-size: 40px;
@@ -23,4 +30,5 @@ span {
     font-weight: bold;
     padding-top: 50px;
     line-height: 1.2;
+    color: whitesmoke;
 }
